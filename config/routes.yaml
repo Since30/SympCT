@@ -1,5 +1,36 @@
 controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+  resource:
+    path: ../src/Controller/
+    namespace: App\Controller
+  type: attribute
+
+app_register:
+  path: /register
+  controller: App\Controller\UserController::register
+  methods: [GET, POST]
+  # Cette route gère l'inscription des utilisateurs. La méthode GET affiche le formulaire d'inscription,
+  # et la méthode POST traite le formulaire soumis.
+
+app_login:
+  path: /login
+  controller: App\Controller\UserController::login
+  methods: [GET, POST]
+  # Cette route gère la connexion des utilisateurs. Elle affiche le formulaire de connexion et le traite.
+
+app_profile:
+  path: /profile
+  controller: App\Controller\UserController::profile
+  methods: [GET]
+  # Cette route affiche le profil de l'utilisateur connecté.
+
+# Routes pour les profils
+app_edit_profile:
+  path: /profile/edit
+  controller: App\Controller\ProfileController::edit
+  methods: [GET, POST]
+  # Cette route affiche et traite le formulaire de modification du profil.
+
+app_view_profile:
+  path: /profile/{id}
+  controller: App\Controller\ProfileController::view
+  methods: [GET]
